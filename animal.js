@@ -11,7 +11,7 @@ class Animal {
     };
 
     isAlive() {
-        return this.health > 0 && this.hunger < 100;
+        return this.health > 0 && this.hunger < 100 && this.stamina > 0;
     };
 
     growUp() {
@@ -27,19 +27,19 @@ class Animal {
     };
 
     eats() {
-        this.health += 10;
-        this.hunger -= 10;
-        console.log(`${this.name} has eaten and their health is now ${this.health}`);
+        this.health += 50;
+        this.hunger -= 50;
     };
     
-    bathes() {
+    bathe() {
         this.happiness += 25;
         this.cleanliness += 50;
         this.stamina += 20;
         this.hunger += 25;
+
         console.log(`${this.name} has had a glorious bath! they now have ${this.happiness} happiness,
         ${this.cleanliness} cleanliness, ${this.stamina} stamina, but they now have ${this.hunger} hunger.`);
-        return this;
+        
     };
 
     stats() {

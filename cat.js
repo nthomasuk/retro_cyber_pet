@@ -1,12 +1,12 @@
 const { Animal } = require("./animal");
 
 class Cat extends Animal {
-    constructor(name, content) {
-        super(name, content);
-        this.content = content;
+    constructor(name) {
+        super(name);
+        this.name = name;
     }
     
-    plays() {
+    play() {
         this.happiness += 50;
         this.cleanliness -= 30;
         this.stamina -= 50;
@@ -18,7 +18,7 @@ class Cat extends Animal {
         return this;
     }
 
-    sleeps() {
+    sleep() {
         this.health += 50;
         this.cleanliness -= 50;
         this.stamina += 50;

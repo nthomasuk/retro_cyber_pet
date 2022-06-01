@@ -9,7 +9,7 @@ let userPet = "";
 
 try {
     const start = async () => {
-        const typeOfPet = await inquirer.prompt({
+        const {typeOfPet} = await inquirer.prompt({
             type: "list",
             name: "typeOfPet",
             message:
@@ -32,7 +32,7 @@ try {
                     }
                 ],
         });
-        const petName = await inquirer.prompt({
+        const {petName} = await inquirer.prompt({
             type: "input",
             name: "petName",
             message: `What is your new pet's name?`,
@@ -62,7 +62,7 @@ async function activities(){
         userPet.growUp();
         const { choice } = await inquirer.prompt({
             type: "list",
-            name: "activities",
+            name: "choice",
             message:
             "So you got your new pet home, but are you responsible enough to keep it alive? Do you want to feed your pet? Play with your pet? Bathe your pet? Or put it to bed?",
             choices: [
@@ -99,19 +99,23 @@ async function activities(){
             if (choice === "bathe") userPet.bathe();
             if (choice === "sleep") userPet.sleep();
             if (choice === "quit") {
-                const quitChoice = gameOver();
+                const quitChoice = quit();
                 if (quitChoice) {
-                    gameOver();
+                    quit();
                     return;
                 };
             }
             
             
-            // activities();
+            activities();
         }
         
-        async function gameOver(){
+        async function quit(){
             console.log("Maybe it's for the best")
         };
+
+        async function gameOver(){
+            console.log("You're cyberpet died! Maybe, you should get a pet rock instead.")
+        }
     };
     
